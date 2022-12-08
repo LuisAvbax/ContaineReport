@@ -8,6 +8,7 @@ from .models import Task
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
+
 # Create your views here.
 # Crear algo cuando una url es visitada
 
@@ -70,7 +71,7 @@ def tasks_completed(request):
 
 @login_required
 def create_task(request):
-    if request== 'GET':
+    if request.method== 'GET':
         return render (request, 'create_task.html',{
             'form': TaskForm
         })
@@ -141,3 +142,4 @@ def signin(request):
         else:
             login(request, user)
             return redirect('tasks')
+
